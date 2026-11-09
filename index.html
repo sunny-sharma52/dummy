@@ -1,0 +1,259 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechNova - Dummy Website</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f7fb;
+            color: #222;
+        }
+
+        header {
+            background: #101b35;
+            color: white;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+        }
+
+        header h2 {
+            color: #00d4ff;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 22px;
+        }
+
+        nav a:hover {
+            color: #00d4ff;
+        }
+
+        .hero {
+            min-height: 450px;
+            background: linear-gradient(120deg, #101b35, #1261a0);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 25px;
+        }
+
+        button {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 6px;
+            background: #00bcd4;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background: #008fa1;
+        }
+
+        section {
+            padding: 65px 8%;
+            text-align: center;
+        }
+
+        section h2 {
+            font-size: 32px;
+            margin-bottom: 25px;
+        }
+
+        .services {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            width: 280px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px #00000015;
+        }
+
+        .card h3 {
+            color: #087ca7;
+            margin-bottom: 15px;
+        }
+
+        .contact-form {
+            max-width: 500px;
+            margin: auto;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 14px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        footer {
+            background: #101b35;
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+
+        body.dark {
+            background: #171717;
+            color: white;
+        }
+
+        body.dark .card {
+            background: #292929;
+            color: white;
+        }
+
+        body.dark input,
+        body.dark textarea {
+            background: #292929;
+            color: white;
+        }
+
+        @media(max-width: 650px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 5px;
+            }
+
+            .hero h1 {
+                font-size: 34px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h2>TechNova</h2>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <button onclick="toggleTheme()">🌙</button>
+    </header>
+
+    <div class="hero" id="home">
+        <h1>Welcome to TechNova</h1>
+        <p>Explore the world of technology and innovation.</p>
+        <button onclick="document.getElementById('services').scrollIntoView()">
+            Explore Services
+        </button>
+    </div>
+
+    <section id="about">
+        <h2>About Us</h2>
+        <p>
+            TechNova is a dummy technology company created to demonstrate
+            modern website development using HTML, CSS and JavaScript.
+            We believe in innovation, creativity and technology.
+        </p>
+    </section>
+
+    <section id="services">
+        <h2>Our Services</h2>
+
+        <div class="services">
+
+            <div class="card">
+                <h3>Web Development</h3>
+                <p>We create modern and responsive websites.</p>
+            </div>
+
+            <div class="card">
+                <h3>App Development</h3>
+                <p>We build useful mobile applications.</p>
+            </div>
+
+            <div class="card">
+                <h3>Digital Marketing</h3>
+                <p>We help businesses grow online.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+
+        <form class="contact-form" onsubmit="sendMessage(event)">
+            <input type="text" id="name" placeholder="Enter your name" required>
+
+            <input type="email" id="email" placeholder="Enter your email" required>
+
+            <textarea id="message" rows="5"
+                placeholder="Write your message" required></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>© 2026 TechNova. All Rights Reserved.</p>
+        <p>Designed using HTML, CSS & JavaScript</p>
+    </footer>
+
+    <script>
+        function toggleTheme() {
+            document.body.classList.toggle("dark");
+        }
+
+        function sendMessage(event) {
+            event.preventDefault();
+
+            let name = document.getElementById("name").value;
+
+            alert("Thank you " + name + "! Your message was submitted successfully.");
+
+            document.querySelector(".contact-form").reset();
+        }
+    </script>
+
+</body>
+</html>
